@@ -1,7 +1,7 @@
 // const colours = ["red", "green", "blue", "yellow"];
 const colours = ["red"];
 
-const cards = [
+const colourCards = [
     { attribute: "0", count: 1 },
     { attribute: "1", count: 2 },
     { attribute: "2", count: 2 },
@@ -17,8 +17,25 @@ const cards = [
     { attribute: "+2", count: 2 }
 ];
 
-const prepareCards = function (OrderedColour) {
-    return cards.flatMap(({attribute, count}) => Array.from({ length: count }, () => ({ colour: OrderedColour, attribute })))
+const wildCards = [
+    {attribute: "colour_change", count:4},
+    {attribute: "+4", count:4},
+]
+
+const prepareColorCards = function (OrderedColour) {
+    return colourCards.flatMap(({attribute, count}) => Array.from({ length: count }, () => ({ type: OrderedColour, attribute })))
 }
-console.log(colours.flatMap(prepareCards))  
+
+const prepareWildCards = function () {
+    return wildCards.flatMap(({attribute, count}) => Array.from({length:count}, () => ({type: "Wild", attribute})))
+}
+const prepareCards = function (colours) {
+    const deck = [];
+    const colouredCards = colours.flatMap(prepareColorCards);
+    const wildCards = prepareWildCards();
+    deck.push(colouredCards);
+    deck.push(wildCards);
+    return deck.flat();
+}
+console.log(prepareCards(colours))
 // console.log(Object.entries(cards))
