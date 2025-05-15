@@ -1,5 +1,4 @@
-// const colours = ["red", "green", "blue", "yellow"];
-const colours = ["red"];
+const colours = ["red", "green", "blue", "yellow"];
 
 const colourCards = [
     { attribute: "0", count: 1 },
@@ -23,7 +22,7 @@ const wildCards = [
 ]
 
 const prepareColorCards = function (colour) {
-    return colourCards.flatMap(({attribute, count}) => Array.from({ length: count }, () => ({ type: colour, attribute })))
+    return colourCards.flatMap(({attribute, count}) => Array.from({ length: count}, () => ({ type: colour, attribute})))
 }
 
 const prepareWildCards = function () {
@@ -36,4 +35,3 @@ const prepareCards = function (colours) {
     return [...colouredCards, ...wildCards];
 }
 console.log(prepareCards(colours))
-// console.log(Object.entries(cards))
