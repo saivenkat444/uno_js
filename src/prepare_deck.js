@@ -34,4 +34,8 @@ const prepareCards = function (colours) {
     const wildCards = prepareWildCards();
     return [...colouredCards, ...wildCards];
 }
-console.log(prepareCards(colours))
+
+const deck = (prepareCards(colours))
+// const content = deck.map(card => JSON.stringify(card)).join("\n");
+// Deno.writeTextFileSync("deck.txt", content);
+
