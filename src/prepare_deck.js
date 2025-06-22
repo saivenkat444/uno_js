@@ -21,7 +21,7 @@ const wildCards = [
     {attribute: "+4", count:4},
 ]
 
-const prepareColorCards = function (colour) {
+export const prepareColorCards = function (colour) {
     return colourCards.flatMap(({attribute, count}) => Array.from({ length: count}, () => ({ type: colour, attribute})))
 }
 
