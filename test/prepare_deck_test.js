@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert";
 import { describe, it } from "jsr:@std/testing/bdd";
-import { prepareColorCards } from "../src/prepare_deck.js";
+import { prepareColorCards, prepareWildCards } from "../src/prepare_deck.js";
 
 describe("preparColorCards(color)", () => {
   it("should give the pack of the colour cards", () => {
@@ -66,3 +66,35 @@ describe("preparColorCards(color)", () => {
     assertEquals(actual, expected);
   });
 });
+
+describe("prepareWildCards()", () => {
+  it("should give the pack of the wild cards", () => {
+    const actual = prepareWildCards();
+    const expected = [
+    {type: "Wild", attribute: "colour_change"},
+    {type: "Wild", attribute: "colour_change"},
+    {type: "Wild", attribute: "colour_change"},
+    {type: "Wild", attribute: "colour_change"},
+    {type: "Wild", attribute: "+4"},
+    {type: "Wild", attribute: "+4"},
+    {type: "Wild", attribute: "+4"},
+    {type: "Wild", attribute: "+4"},
+    ];
+    assertEquals(actual, expected);
+  })
+  it("should not break even there is a parameter", () => {
+    const actual = prepareWildCards();
+    const expected = [
+    {type: "Wild", attribute: "colour_change"},
+    {type: "Wild", attribute: "colour_change"},
+    {type: "Wild", attribute: "colour_change"},
+    {type: "Wild", attribute: "colour_change"},
+    {type: "Wild", attribute: "+4"},
+    {type: "Wild", attribute: "+4"},
+    {type: "Wild", attribute: "+4"},
+    {type: "Wild", attribute: "+4"},
+    ];
+    assertEquals(actual, expected);
+  })
+})
+

@@ -25,7 +25,7 @@ export const prepareColorCards = function (colour) {
     return colourCards.flatMap(({attribute, count}) => Array.from({ length: count}, () => ({ type: colour, attribute})))
 }
 
-const prepareWildCards = function () {
+export const prepareWildCards = function () {
     return wildCards.flatMap(({attribute, count}) => Array.from({ length: count}, () => ({ type: "Wild", attribute })))
 }
 
