@@ -81,7 +81,8 @@ describe("prepareWildCards()", () => {
     {type: "Wild", attribute: "+4"},
     ];
     assertEquals(actual, expected);
-  })
+  });
+  
   it("should not break even there is a parameter", () => {
     const actual = prepareWildCards();
     const expected = [
@@ -97,4 +98,3 @@ describe("prepareWildCards()", () => {
     assertEquals(actual, expected);
   })
 })
-
