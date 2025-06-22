@@ -2,10 +2,11 @@ import { assertEquals } from "jsr:@std/assert";
 import { describe, it } from "jsr:@std/testing/bdd";
 import { prepareColorCards } from "../src/prepare_deck.js";
 
-describe("fetchNlines(count, content, readFromTop = true)", () => {
-  it("should give exact lines of the file when the count of lines is equal to the count", () => {
+describe("preparColorCards(color)", () => {
+  it("should give the pack of the colour cards", () => {
     const actual = prepareColorCards("red");
-    const expected = [{type: "red", attribute:"0"}, 
+    const expected = [
+    { type: "red", attribute:"0"}, 
     { type: "red", attribute: "1"},
     { type: "red", attribute: "1"},
     { type: "red", attribute: "2"},
@@ -30,6 +31,37 @@ describe("fetchNlines(count, content, readFromTop = true)", () => {
     { type: "red", attribute: "skip"},
     { type: "red", attribute: "+2"},
     { type: "red", attribute: "+2"}
+    ];
+    assertEquals(actual, expected);
+  });
+    it("should be empty when there is no colour", () => {
+    const actual = prepareColorCards("");
+    const expected = [
+    { type: "", attribute:"0"}, 
+    { type: "", attribute: "1"},
+    { type: "", attribute: "1"},
+    { type: "", attribute: "2"},
+    { type: "", attribute: "2"},
+    { type: "", attribute: "3"},
+    { type: "", attribute: "3"},
+    { type: "", attribute: "4"},
+    { type: "", attribute: "4"},
+    { type: "", attribute: "5"},
+    { type: "", attribute: "5"},
+    { type: "", attribute: "6"},
+    { type: "", attribute: "6"},
+    { type: "", attribute: "7"},
+    { type: "", attribute: "7"},
+    { type: "", attribute: "8"},
+    { type: "", attribute: "8"},
+    { type: "", attribute: "9"},
+    { type: "", attribute: "9"},
+    { type: "", attribute: "reverse"},
+    { type: "", attribute: "reverse"},
+    { type: "", attribute: "skip"},
+    { type: "", attribute: "skip"},
+    { type: "", attribute: "+2"},
+    { type: "", attribute: "+2"}
     ];
     assertEquals(actual, expected);
   });
