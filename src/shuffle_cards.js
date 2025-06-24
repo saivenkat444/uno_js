@@ -5,5 +5,3 @@ export const shuffleCards = function (deck) {
     });
     return shuffledCards;
 }
-
-

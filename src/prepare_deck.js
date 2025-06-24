@@ -1,4 +1,4 @@
-const colours = ["red", "green", "blue", "yellow"];
+const colours = ["red", "green"];
 
 const colourCards = [
     { attribute: "0", count: 1 },
@@ -30,13 +30,13 @@ export const prepareWildCards = function () {
     return wildCards.flatMap(({attribute, count}) => Array.from({ length: count}, () => ({ type: "Wild", attribute })))
 }
 
-const prepareCards = function (colours) {
+export const prepareCards = function () {
     const colouredCards = colours.flatMap(prepareColorCards);
     const wildCards = prepareWildCards();
     return [...colouredCards, ...wildCards];
 }
 
-console.log(shuffleCards(prepareCards(colours)))
+// console.log(shuffleCards(prepareCards(colours)))
 // const content = deck.map(card => JSON.stringify(card)).join("\n");
 // Deno.writeTextFileSync("deck.txt", content);
 
