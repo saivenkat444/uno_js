@@ -1,7 +1,8 @@
 import { logPlayers } from "./get_player_details.js";
 import { shuffleCards } from "./shuffle_cards.js";
 import { prepareCards } from "./prepare_deck.js";
-
+//lohita here
+//this is another line
 const loggedPalyers = logPlayers();
 
 const deck = shuffleCards(prepareCards());
@@ -28,11 +29,13 @@ const performPlayerActions = ([...cards]) => {
 
     if (confirm("pick a card from deck? ")) {
         cards.push(deck.shift());
+        performedAction = true;
         console.log(cards);
     }
     if(confirm("Do you want to throw a card? ")) {
         showCardsWithNumbers(cards);
         const cardIndex = prompt("enter the card number: ")
+        if (validCard(cards[cardIndex]))
     }
     //ask if he wants to throw a card
     //if he does not take a card from the deck then he needs to pick a card
